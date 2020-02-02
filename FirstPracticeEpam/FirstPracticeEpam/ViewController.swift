@@ -14,80 +14,68 @@ class ViewController: UIViewController {
     @IBOutlet weak var infoText: UILabel!
     @IBOutlet weak var answerUser: UITextField!
     
-    var randomVar: Int = 0
-    var userVar: Int = 0
+    var randomVar = 0
+    var userVar = 0
+    
+    static let base = "Тебе предстоит угадать число от 0 до 100"
+    static let error = "Ошибка! Введите число от 0 до 100"
+    static let success = "Молодец! Ты угадал :)"
+    static let repeatSuccess = "Давай поиграем еще? Число от 0 до 100"
+    static let many = "Я загадал меньше, попробуй еще :)"
+    static let few = "Я загадал больше, попробуй еще :)"
+    static let answer = "Загаданное число"
+    static let newVar = "Я загадал снова"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         infoText.text = nil
-        main()
+        startGame()
     }
     
-    //Кнопка "проверить"
     @IBAction func checkButton(_ sender: Any) {
-        let check: Bool = true
-        if check == checkUserVar(){
-            mainText.text = "Тебе предстоит угадать число от 0 до 100"
+        if let text = answerUser.text, let value = Int(text){
+            userVar = value
+            mainText.text = ViewController.base
             comparison()
         } else {
-            mainText.text = "Ошибка! Введите число от 0 до 100"
+            mainText.text = ViewController.error
             clearTextField()
         }
     }
     
-    //Функция сравнения 2х значений
     func comparison(){
         if userVar == randomVar {
-            infoText.text = "Молодец! Ты угадал :)"
+            infoText.text = ViewController.success
             removeKeyboard()
-            mainText.text = "Давай поиграем еще? Число от 0 до 100"
-            main()
+            mainText.text = ViewController.repeatSuccess
+            startGame()
             clearTextField()
             
         } else if userVar > randomVar {
-            infoText.text = "Я загадал меньше, попробуй еще :)"
+            infoText.text = ViewController.many
             clearTextField()
-        } else if userVar < randomVar {
-            infoText.text = "Я загадал больше, попробуй еще :)"
+        } else {
+            infoText.text = ViewController.few
             clearTextField()
         }
     }
     
-    //Кнопка "сдаться"
     @IBAction func fail(_ sender: Any) {
-        infoText.text = "Я загадал снова"
-        mainText.text = "Загаданное число \(randomVar)!"
+        mainText.text = ViewController.answer + " " + String(randomVar) + "!"
+        infoText.text = ViewController.newVar
         removeKeyboard()
         clearTextField()
-        main()
+        startGame()
     }
     
-    //Генератор случайного числа
-    func generateValue() -> Int {
-        return Int.random(in: 0...100)
+    func startGame(){
+        randomVar = Int.random(in: 0...100)
     }
     
-    //Получение значения
-    func main(){
-        randomVar = generateValue()
-    }
-    
-    //Проверка на Int
-    func checkUserVar() -> Bool{
-        if let text = answerUser.text, let value = Int(text){
-            userVar = value
-            return true
-        } else {
-            return false
-        }
-    }
-    
-    //Очистка поля от старого значения
     func clearTextField(){
         answerUser.text = nil
     }
     
-    //Функция скрывает клавиатуру
     func removeKeyboard(){
         answerUser.resignFirstResponder()
     }
