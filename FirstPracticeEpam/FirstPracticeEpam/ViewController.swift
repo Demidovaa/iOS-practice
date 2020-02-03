@@ -17,14 +17,14 @@ class ViewController: UIViewController {
     var randomVar = 0
     var userVar = 0
     
-    static let base = "Тебе предстоит угадать число от 0 до 100"
-    static let error = "Ошибка! Введите число от 0 до 100"
-    static let success = "Молодец! Ты угадал :)"
-    static let repeatSuccess = "Давай поиграем еще? Число от 0 до 100"
-    static let many = "Я загадал меньше, попробуй еще :)"
-    static let few = "Я загадал больше, попробуй еще :)"
-    static let answer = "Загаданное число"
-    static let newVar = "Я загадал снова"
+    private let base = "Тебе предстоит угадать число от 0 до 100"
+    private let error = "Ошибка! Введите число от 0 до 100"
+    private let success = "Молодец! Ты угадал :)"
+    private let repeatSuccess = "Давай поиграем еще? Число от 0 до 100"
+    private let many = "Я загадал меньше, попробуй еще :)"
+    private let few = "Я загадал больше, попробуй еще :)"
+    private let answer = "Загаданное число"
+    private let newVar = "Я загадал снова"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,34 +35,32 @@ class ViewController: UIViewController {
     @IBAction func checkButton(_ sender: Any) {
         if let text = answerUser.text, let value = Int(text){
             userVar = value
-            mainText.text = ViewController.base
+            mainText.text = base
             comparison()
         } else {
-            mainText.text = ViewController.error
+            mainText.text = error
             clearTextField()
         }
     }
     
     func comparison(){
         if userVar == randomVar {
-            infoText.text = ViewController.success
+            infoText.text = success
             removeKeyboard()
-            mainText.text = ViewController.repeatSuccess
+            mainText.text = repeatSuccess
             startGame()
-            clearTextField()
             
         } else if userVar > randomVar {
-            infoText.text = ViewController.many
-            clearTextField()
+            infoText.text = many
         } else {
-            infoText.text = ViewController.few
-            clearTextField()
+            infoText.text = few
         }
+        clearTextField()
     }
     
     @IBAction func fail(_ sender: Any) {
-        mainText.text = ViewController.answer + " " + String(randomVar) + "!"
-        infoText.text = ViewController.newVar
+        mainText.text = "\(answer) \(randomVar)!"
+        infoText.text = newVar
         removeKeyboard()
         clearTextField()
         startGame()
