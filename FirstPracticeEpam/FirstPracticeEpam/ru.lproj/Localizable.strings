@@ -1,0 +1,33 @@
+/* 
+  File.strings
+  FirstPracticeEpam
+
+  Created by Анастасия Демидова on 05.02.2020.
+  Copyright © 2020 Anastasia Demidova. All rights reserved.
+*/
+
+//MARK: for ViewController
+"base" = "Тебе предстоит угадать число в диапазоне: ";
+"error" = "Ошибка! Введите число в диапазоне: ";
+"success" = "Молодец! Ты угадал :)";
+"repeatSuccess" = "Давай поиграем еще? Заданный диапазон: ";
+"many" = "Я загадал меньше, попробуй еще :)";
+"few" = "Я загадал больше, попробуй еще :)";
+"answer" = "Загаданное число";
+"newVar" = "Я загадал снова";
+"counterSuccess" = "Количество шагов: ";
+"counterFail" = "Попыток: ";
+
+//MARK: for SettingsViewController
+"setRange" = "Необходимо задать диапазон: ";
+"error" = "Ошибка ввода!";
+
+//MARK: for StatisticsViewController
+"statistics" = "Количество игр: ";
+
+//MARK: for StatisticsViewController
+"info" = "Информация";
+"gameNumber" = "Игра №";
+"counterGame" = "Количество игр:";
+"range" = "Диапазон:";
+"attempts" = "Попытки: ";

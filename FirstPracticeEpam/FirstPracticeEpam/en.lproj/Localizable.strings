@@ -1,0 +1,33 @@
+/* 
+  File.strings
+  FirstPracticeEpam
+
+  Created by Анастасия Демидова on 05.02.2020.
+  Copyright © 2020 Anastasia Demidova. All rights reserved.
+*/
+
+//MARK: for ViewController
+"base" = "You have to guess a number in the range: ";
+"error" = "Error! Enter a number in the range: ";
+"success" = "Well done! You guessed it :)";
+"repeatSuccess" = "Let's play some more? Number in the range:" ;
+"many" = "I made less, try again :)";
+"few" = "I made more, try again :)";
+"answer" = "The guessed number";
+"newVar" = "I did it again";
+"counterSuccess" = "Number of steps: ";
+"counterFail" = "Attempts: ";
+
+//MARK: for SettingsViewController
+"setRange" = "You must specify a range: ";
+"error" = "Input Error!";
+
+//MARK: for StatisticsViewController
+"statistics" = "Counter games: ";
+
+//MARK: for StatisticsViewController
+"info" = "Info";
+"gameNumber" = "Game №";
+"counterGame" = "Counter game:";
+"range" = "Range:";
+"attempts" = "Attempts:";
