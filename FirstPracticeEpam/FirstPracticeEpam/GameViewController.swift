@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  GameViewController.swift
 //  FirstPracticeEpam
 //
 //  Created by Анастасия Демидова on 31.01.2020.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class GameViewController: UIViewController {
     @IBOutlet weak var mainLabel: UILabel! 
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var inputTextField: UITextField!
@@ -135,11 +135,12 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: SettingsDelegate {    
+extension GameViewController: SettingsDelegate {    
     func didUpdateSettings(range: RangeSetting) {
         self.range = range
         DataBaseHelper.save(object: range.min, for: RangeSetting.minKey)
         DataBaseHelper.save(object: range.max, for: RangeSetting.maxKey)
+        
         generatedNumber = Int.random(in: range.min ... range.max)
         mainLabel.text = "base".localized() + "\n" + range.description
         counterLabel.text = nil

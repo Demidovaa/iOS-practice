@@ -15,7 +15,6 @@ struct Game {
 
 class StatisticsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    
     var items = [Game]()
     
     override func viewDidLoad() {
